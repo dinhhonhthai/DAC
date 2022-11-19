@@ -24,33 +24,57 @@ void OUT_PUT(byte in)
   digitalWrite(OUT1,0);
  }else{
    digitalWrite(OUT1,1);
+<<<<<<< HEAD
     tlc5620.writeTLC5620(DACA, DAC_REFX2,OUT_RLY[1]);
+=======
+   
+>>>>>>> c7371f3 (oke)
  }
 
  if(OUT_RLY[in+1]<10){
   digitalWrite(OUT2,0);
  }else{
     digitalWrite(OUT2,1);
+<<<<<<< HEAD
     tlc5620.writeTLC5620(DACB, DAC_REFX2,OUT_RLY[in+1]);
+=======
+   
+>>>>>>> c7371f3 (oke)
  }
 
   if(OUT_RLY[in+2]<10){
   digitalWrite(OUT3,0);
  }else{
     digitalWrite(OUT3,1);
+<<<<<<< HEAD
     tlc5620.writeTLC5620(DACC, DAC_REFX2,OUT_RLY[in+2]);
+=======
+   
+>>>>>>> c7371f3 (oke)
  }
 
    if(OUT_RLY[in+3]<10){
   digitalWrite(OUT4,0);
  }else{
     digitalWrite(OUT4,1);
+<<<<<<< HEAD
     tlc5620.writeTLC5620(DACD, DAC_REFX2,OUT_RLY[in+3]);
  }
 
  
   
  
+=======
+   
+ }
+// 26 53 00 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20
+//  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 25
+
+ tlc5620.writeTLC5620(DACA, DAC_REFX2, OUT_RLY[in]);
+ tlc5620.writeTLC5620(DACB, DAC_REFX2, OUT_RLY[in + 1]);
+ tlc5620.writeTLC5620(DACC, DAC_REFX2, OUT_RLY[in + 2]);
+ tlc5620.writeTLC5620(DACD, DAC_REFX2, OUT_RLY[in + 3]);
+>>>>>>> c7371f3 (oke)
 }
 void setup() {
 // put your setup code here, to run once:
@@ -58,11 +82,14 @@ void setup() {
 // digitalWrite(OUT2,1);
 // digitalWrite(OUT3,1);
 // digitalWrite(OUT4,1);
+<<<<<<< HEAD
   tlc5620.initTLC5620();
    tlc5620.writeTLC5620(DACA, DAC_REF, 0);
     tlc5620.writeTLC5620(DACB, DAC_REF, 0);
      tlc5620.writeTLC5620(DACC, DAC_REF, 0);
       tlc5620.writeTLC5620(DACD, DAC_REF, 0);
+=======
+>>>>>>> c7371f3 (oke)
 pinMode(OUT1,OUTPUT);
 pinMode(OUT2,OUTPUT);
 pinMode(OUT3,OUTPUT);
@@ -77,18 +104,30 @@ digitalWrite(OUT1,0);
 digitalWrite(OUT2,0);
 digitalWrite(OUT3,0);
 digitalWrite(OUT4,0);
+<<<<<<< HEAD
 Serial.begin(9600);
+=======
+Serial.begin(250000);
+>>>>>>> c7371f3 (oke)
 pinMode(dir,OUTPUT);
 digitalWrite(dir,LOW);
 //slave = (0<<7) | (0<<6) | (0<<5) | (1<<4) | (1<<3) | (1<<2) | (1<<1) | (1<<0);
 slave = EEPROM.read(200);
 if(slave >=65)slave = 63;
 Serial.println(slave);
+<<<<<<< HEAD
+=======
+ tlc5620.initTLC5620();
+>>>>>>> c7371f3 (oke)
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+<<<<<<< HEAD
  
+=======
+//  tlc5620.writeTLC5620(DACA, DAC_REFX2,255);
+>>>>>>> c7371f3 (oke)
  while (Serial.available() > 0) {
     //------------------------------------------- doc du lieu dau vao nhan duoc
     char in = Serial.read(); 
@@ -277,8 +316,12 @@ void loop() {
   
 if ((unsigned long) (millis() - push) >= 1000) {
   digitalWrite(dir,HIGH);
+<<<<<<< HEAD
   //  tlc5620.writeTLC5620(DACA, DAC_REFX2,255);
    Serial.println(  OUT_RLY[2],HEX );
+=======
+  
+>>>>>>> c7371f3 (oke)
    Serial.print('#'); Serial.print(slave); Serial.print('*');
    delay(10);
    digitalWrite(dir,LOW);
@@ -286,6 +329,7 @@ if ((unsigned long) (millis() - push) >= 1000) {
 }
   
 }
+<<<<<<< HEAD
 
 // #include<Arduino.h>
 // unsigned char s;
@@ -301,3 +345,5 @@ if ((unsigned long) (millis() - push) >= 1000) {
    
 //   Serial.print(s); 
 // }
+=======
+>>>>>>> c7371f3 (oke)
