@@ -25,6 +25,7 @@ String add;
 #define LA3 A1
 #define LA4 A0
 #define dir A4
+#define err A5
 // TLC5620::TLC5620(unsigned int DATA, unsigned int CLK, unsigned int LOAD, unsigned int LDAC)
 
 
@@ -192,6 +193,7 @@ void setup() {
   digitalWrite(OUT2, 1);
   digitalWrite(OUT3, 1);
   digitalWrite(OUT4, 1);
+  
   // digitalWrite(OUT1,0);
   // digitalWrite(OUT2,0);
   // digitalWrite(OUT3,0);
@@ -204,10 +206,12 @@ void setup() {
   digitalWrite(LA2, 1);
   digitalWrite(LA3, 1);
   digitalWrite(LA4, 1);
+  digitalWrite(err,1);
   pinMode(LA1, OUTPUT);
   pinMode(LA2, OUTPUT);
   pinMode(LA3, OUTPUT);
   pinMode(LA4, OUTPUT);
+  pinMode(err, OUTPUT);
 
   // digitalWrite(OUT1,1);
   // digitalWrite(OUT2,1);
@@ -608,6 +612,7 @@ void loop() {
 
     //    /-----------------
     push = millis();
+    digitalWrite(err,0);
   }
 <<<<<<< HEAD
   
@@ -629,9 +634,9 @@ if ((unsigned long) (millis() - push) >= 1000) {
 
   if ((unsigned long) (millis() - push) >= 1000) {
     digitalWrite(dir, HIGH);
-
+      digitalWrite(err,1);
     Serial.print('#'); Serial.print(slave); Serial.print('*');
-    delay(10);
+    delay(5);
     digitalWrite(dir, LOW);
     push = millis();
   }
